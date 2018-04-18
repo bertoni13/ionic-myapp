@@ -49,18 +49,6 @@ export class FeedPage {
 				console.info(error);
 			}
 		)
-	}
-	ionViewDidLoads() {
-		this.movieProvider.getTranslate().subscribe(
-			data =>{
-				const response = (data as any);
-				const ret = JSON.parse(response);
-				// this.lista_filmes = ret.results;
-				console.info(ret);
-		}, error=>{
-				console.info(error);
-			}
-		)
 	}	
 
 }

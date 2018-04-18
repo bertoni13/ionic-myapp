@@ -19,7 +19,4 @@ export class MovieProvider {
   getLastestMovies(){
   	return this.http.get(this.url + "/movie/popular?api_key=9c3d2c4419996bf281beb88bd141f2f3" + this.translate);
   }
-  getTranslate(){
-    return this.http.get(this.url + "https://api.themoviedb.org/3/configuration/languages?api_key=9c3d2c4419996bf281beb88bd141f2f3");
-  }
 }
