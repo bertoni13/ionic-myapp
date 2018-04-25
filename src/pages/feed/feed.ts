@@ -1,54 +1,87 @@
 import { Component } from '@angular/core';
 import { IonicPage, NavController, NavParams } from 'ionic-angular';
 import { MovieProvider } from '../../providers/movie/movie';
-/**
- * Generated class for the FeedPage page.
- *
- * See https://ionicframework.com/docs/components/#navigation for more info on
- * Ionic pages and navigation.
- */
+import { LoadingController } from 'ionic-angular';
+import { MovieDetailsPage } from '../movie-details/movie-details';
 
-@IonicPage()
-@Component({
-  selector: 'page-feed',
-  templateUrl: 'feed.html',
-  providers:[
-  	MovieProvider
-  ]
-})
-export class FeedPage {
+ @IonicPage()
+ @Component({
+ 	selector: 'page-feed',
+ 	templateUrl: 'feed.html',
+ 	providers:[
+ 	MovieProvider
+ 	]
+ })
+ export class FeedPage {
 
-	public feed = {
-		titulo:'Charles franca',
-		data: "28 Dezembro de 1988",
-		desc: 'teste de descricao de filme',
-		likes: 15,
-		comments: 7,
-		time_comment:'11hs atrás'
-	}
+ 	public lista_filmes: Array<any>;
+ 	public page = 1;
+ 	public infinitScroll;
+ 	public loader;
+ 	public refresher;
+ 	public isrefresher: boolean = false;
+ 	constructor(public navCtrl: NavController,
+ 		public navParams: NavParams, 
+ 		private movieProvider: MovieProvider,
+ 		public loadingCtrl: LoadingController) {
+ 	}
 
-	public lista_filmes: Array<any>;
+ 	public loadingMovies(){
+ 		this.loader = this.loadingCtrl.create({
+ 			content: "Carregando...",
+ 		});
+ 		this.loader.present();
+ 	}
 
-	constructor(public navCtrl: NavController,
-				public navParams: NavParams, 
-				private movieProvider: MovieProvider) {
-	}
+ 	public closeMovie(){
+ 		this.loader.dismiss();
+ 	}
+ 	public doRefresh(refresher) {
+ 		this.refresher = refresher;
+ 		this.isrefresher = true;
+ 		this.carregarFilmes();
 
-	public soma(num1:number, num2:number):void{
-		alert(num1 + num2);
-	}
+ 	}
+ 	ionViewDidLoad() {
+ 		this.carregarFilmes();
+ 	}
+ 	doInfinite(infinitScroll) {
+		this.page++;
+		this.infinitScroll = infinitScroll;
+		this.carregarFilmes(true);
 
-	ionViewDidLoad() {
-		this.movieProvider.getLastestMovies().subscribe(
-			data =>{
-				const response = (data as any);
-				const ret = JSON.parse(response._body);
-				this.lista_filmes = ret.results;
-				console.info(ret);
-		}, error=>{
-				console.info(error);
-			}
-		)
-	}	
+ 	}
+ 	openDetails(filme){
+ 		console.info(filme);
+ 		this.navCtrl.push(MovieDetailsPage, { id: filme.id });
+ 	}
+ 	carregarFilmes(newpage: boolean = false){
+ 		this.loadingMovies();
+ 		this.movieProvider.getPopularMovies(this.page).subscribe(
+ 			data =>{
+ 				const response = (data as any);
+ 				const ret = JSON.parse(response._body);
 
-}
+ 				if(newpage){
+ 					this.lista_filmes = this.lista_filmes.concat(ret.results);
+ 					this.infinitScroll.complete();
+ 				}else{
+ 					this.lista_filmes = ret.results;
+ 				}
+ 				
+ 				console.info(ret);
+ 				this.closeMovie();
+ 				if(this.isrefresher){
+ 					this.refresher.complete();
+ 					this.isrefresher = false;
+ 				}
+ 			}, error=>{
+ 				console.info(error);
+ 				if(this.isrefresher){
+ 					this.refresher.complete();
+ 					this.isrefresher = false;
+ 				}
+ 			}
+ 			) 		
+ 	}
+ }

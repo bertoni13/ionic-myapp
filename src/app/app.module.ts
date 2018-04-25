@@ -13,6 +13,8 @@ import { HttpModule } from  '@angular/http'
 import { StatusBar } from '@ionic-native/status-bar';
 import { SplashScreen } from '@ionic-native/splash-screen';
 import { MovieProvider } from '../providers/movie/movie';
+import { MovieDetailsPageModule } from '../pages/movie-details/movie-details.module' 
+import { TopMoviePageModule } from '../pages/top-movie/top-movie.module' 
 
 @NgModule({
   declarations: [
@@ -20,14 +22,16 @@ import { MovieProvider } from '../providers/movie/movie';
     AboutPage,
     ContactPage,
     HomePage,
-    TabsPage
+    TabsPage,
   ],
   imports: [
     BrowserModule,
     IonicModule.forRoot(MyApp),
     FeedPageModule,
     IntroPageModule,
-    HttpModule
+    HttpModule,
+    MovieDetailsPageModule,
+    TopMoviePageModule
   ],
   bootstrap: [IonicApp],
   entryComponents: [

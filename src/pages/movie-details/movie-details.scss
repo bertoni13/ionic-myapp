@@ -1,0 +1,27 @@
+page-movie-details {
+	.scroll-content{
+		padding: 5px !important;
+	}
+	.ion-logo-facebook, .ion-logo-twitter, .ion-logo-instagram{
+		color: #f8d448;
+		zoom:2;
+	}
+	.fab-md{
+		background-color:#989;
+	}
+	.title{
+		color:#f8d448 !important;
+	}
+	.genres{
+		float: left;
+		margin-right: 3%;
+		color: #c1c1c1;
+	}
+	a{
+		text-decoration: none;
+		color: #202020;
+	}
+	hr{
+		background-color: #b1b1b1 !important;	
+	}
+}

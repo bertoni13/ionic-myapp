@@ -1,0 +1,100 @@
+<ion-header>
+
+  <ion-navbar>
+    <ion-title>Detalhes do filme</ion-title>
+  </ion-navbar>
+
+</ion-header>
+
+<ion-content padding>
+	<ion-card *ngIf="filme">
+
+		<ion-item>
+			<h2 class="feed_title">{{ filme.title }}</h2>
+			<p class="feed_date">{{ filme.release_data }}</p>
+		</ion-item>
+
+		<img src="https://image.tmdb.org/t/p/w300/{{filme.backdrop_path}}">
+
+		<ion-card-content>
+			<p>{{ filme.overview }}</p>
+		</ion-card-content>
+    <ion-row>
+      <ion-card-content>
+        <p><ion-icon name="heart"></ion-icon> Nota média: <strong>{{filme.vote_average}}/10</strong> - Total de votos: <strong>{{filme.vote_count}}</strong></p>
+      </ion-card-content>   
+    </ion-row>
+  </ion-card>
+  <ion-card>
+    <ion-fab right top>
+      <button ion-fab>
+       {{filme?.release_date | date:'yyyy'}}
+     </button>
+   </ion-fab>
+
+   <ion-item>
+    <ion-icon name="pricetags" item-start large></ion-icon>
+    <h2 class="title">Género</h2>
+    <div class="genres" *ngFor="let g of filme?.genres">
+    	{{ g.name }} 
+    </div>
+  </ion-item>
+  <hr/>
+  <ion-item>
+    <ion-icon name="time" item-left large ></ion-icon>
+    <h2 class="title">Duração</h2>
+    <p>{{ filme?.runtime }}&nbsp;minutos</p>
+  </ion-item>
+  <hr/>
+  <ion-item>
+    <ion-icon name="videocam" item-left large ></ion-icon>
+    <h2 class="title">Produtora</h2>
+    <div class="genres" *ngFor="let g of filme?.production_companies">
+      {{ g.name }} 
+    </div>
+  </ion-item>
+  <hr/> 
+  <ion-item>
+    <ion-icon name="globe" item-left large ></ion-icon>
+    <h2 class="title">País da Produção</h2>
+    <div class="genres" *ngFor="let g of filme?.production_countries">
+      {{ g.name }} 
+    </div>
+  </ion-item>  
+  <hr/>
+  <ion-item>
+    <ion-icon name="logo-usd" item-left large ></ion-icon>
+    <h2 class="title">Receita</h2>
+    <p>{{ filme?.revenue | number:'3.2-5'}}</p>
+  </ion-item>
+  <hr/>
+  <ion-item>
+    <span item-start>
+      <a href="https://twitter.com/" target="blank">
+        <ion-icon name="logo-twitter"></ion-icon>
+      </a>
+    </span>
+    <span item-start>
+      <a href="https://image.tmdb.org/t/p/w300/" target="blank">
+        <ion-icon name="logo-facebook"></ion-icon>
+      </a> 
+    </span>
+    <span item-start>
+      <a href="https://image.tmdb.org/t/p/w300/" target="blank">
+        <ion-icon name="logo-instagram"></ion-icon>
+      </a>
+    </span>
+    <ng-container *ngIf="filme?.homepage?.length">
+      <button ion-button icon-left clear item-end>
+        <ion-icon name="home"></ion-icon>
+        <a href="{{filme?.homepage}}" target="blank">Site</a>
+      </button>
+    </ng-container>
+  </ion-item>
+  <hr/>
+  <ion-item>
+    <h2 class="title">Trailer</h2>
+    <iframe width="100%" height="auto" src="https://www.youtube.com/embed/WTh5STZlQE4" frameborder="0" allowfullscreen></iframe>
+  </ion-item>  
+</ion-card>	
+</ion-content>

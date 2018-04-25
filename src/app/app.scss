@@ -14,3 +14,28 @@
 // To declare rules for a specific mode, create a child rule
 // for the .md, .ios, or .wp mode classes. The mode class is
 // automatically applied to the <body> element in the app.
+.content-md{
+	background: #202020;
+}
+.toolbar-background-md{
+	background: #f8d448;
+}
+.card-md{
+	background: #424242;
+	.item-md{
+		background: #424242;
+		h2{
+			color: #c1c1c1;
+		}
+	}
+	p{
+		color: #c1c1c1;
+	}
+}
+.button-md{
+	background: #f8d448;
+	color: #202020;
+}
+ion-refresher-content{
+	background: #c1c1c1;
+}
