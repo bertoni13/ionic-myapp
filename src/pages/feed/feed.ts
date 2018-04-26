@@ -52,7 +52,6 @@ import { MovieDetailsPage } from '../movie-details/movie-details';
 
  	}
  	openDetails(filme){
- 		console.info(filme);
  		this.navCtrl.push(MovieDetailsPage, { id: filme.id });
  	}
  	carregarFilmes(newpage: boolean = false){
@@ -69,7 +68,6 @@ import { MovieDetailsPage } from '../movie-details/movie-details';
  					this.lista_filmes = ret.results;
  				}
  				
- 				console.info(ret);
  				this.closeMovie();
  				if(this.isrefresher){
  					this.refresher.complete();

@@ -2,12 +2,7 @@ import { Component } from '@angular/core';
 import { IonicPage, NavController, NavParams } from 'ionic-angular';
 import { HomePage } from '../home/home';
 import { FeedPage } from '../feed/feed';
-/**
- * Generated class for the ConfiguracoesPage page.
- *
- * See https://ionicframework.com/docs/components/#navigation for more info on
- * Ionic pages and navigation.
- */
+import { TopMoviePage } from '../top-movie/top-movie';
 
 @IonicPage()
 @Component({
@@ -30,4 +25,7 @@ export class ConfiguracoesPage {
   openFeed(){
   	this.navCtrl.push(FeedPage);
   }  
+  openTopMovie(){
+    this.navCtrl.push(TopMoviePage);
+  }    
 }

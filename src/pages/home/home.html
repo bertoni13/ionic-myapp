@@ -18,7 +18,7 @@
     <ion-row>
       <ion-col col-6 *ngFor="let g of lista_filmes_now | slice:0:4">
       <ion-card class="teste">
-          <img src="https://image.tmdb.org/t/p/w300/{{g.backdrop_path}}"/>
+          <img src="https://image.tmdb.org/t/p/w300/{{g.backdrop_path}}" (click)="openDetails(filme)"/>
           <div class="card-title">{{g.title}}</div>
 <!--           <div class="card-subtitle">41 Listings</div> -->
         </ion-card>

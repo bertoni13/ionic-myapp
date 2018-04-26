@@ -15,7 +15,7 @@ export class MovieProvider {
   getNowMovies(){
     return this.http.get(this.url + `/movie/now_playing?api_key=9c3d2c4419996bf281beb88bd141f2f3` + this.translate);
   }  
-  getTopMovies(){
+  getTopMovies(page){
     return this.http.get(this.url + `/movie/top_rated?api_key=9c3d2c4419996bf281beb88bd141f2f3` + this.translate);
   }  
   getMoviesDetails(filmeId){

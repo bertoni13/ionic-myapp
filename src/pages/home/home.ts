@@ -14,6 +14,7 @@ export class HomePage {
 	public lista_filmes: Array<any>;
 	public lista_filmes_now: Array<any>;
 	public filme;
+	public page = 1;
 	Object = Object;
   constructor(public navCtrl: NavController, private movieProvider: MovieProvider,) {
 
@@ -23,7 +24,7 @@ export class HomePage {
 		this.carregaFilmesNow();
 	}
  	carregarFilmes(newpage: boolean = false){
- 		this.movieProvider.getTopMovies().subscribe(
+ 		this.movieProvider.getTopMovies(this.page).subscribe(
  			data =>{
  				const response = (data as any);
  				const ret = JSON.parse(response._body);
