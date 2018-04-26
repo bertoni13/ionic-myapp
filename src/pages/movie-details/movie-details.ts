@@ -2,7 +2,6 @@ import { Component } from '@angular/core';
 import { DatePipe } from '@angular/common';
 import { IonicPage, NavController, NavParams } from 'ionic-angular';
 import { MovieProvider } from '../../providers/movie/movie';
-
 @IonicPage()
 @Component({
   selector: 'page-movie-details',
@@ -12,6 +11,8 @@ import { MovieProvider } from '../../providers/movie/movie';
 export class MovieDetailsPage {
 
 	public filme;
+  public video;
+  public youtube: string = 'https://www.youtube.com/embed/'
 	public filmeId;
   constructor(
   	public navCtrl: NavController,
@@ -30,11 +31,17 @@ export class MovieDetailsPage {
   		console.info("error");
   	})
 
-    // this.movieProvider.getNetwork(this.filmeId).subscribe(data =>{
-    //   let net = (data as any)._body;
-    //   this.filme = JSON.parse(net);
-    //   console.info(this.filme);
-    // })
+    // this.movieProvider.getVideosMovies(this.filmeId).subscribe(data =>{
+    //   let videos = (data as any)._body;
+    //     this.video = JSON.parse(videos);
+    //     for (let entry of this.video.results) {
+    //          // 1, "string", false
+    //         let s = this.youtube + entry.id;
+    //         console.log('dsdasdas', s);
+
+    //     }
+    //   }
+    // )
   }
 
 }

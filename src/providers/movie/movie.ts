@@ -23,5 +23,8 @@ export class MovieProvider {
   }
   getNetwork(filmeId){
     return this.http.get(this.url + `/movie/${filmeId}external_ids?api_key=9c3d2c4419996bf281beb88bd141f2f3`);
-  }  
+  } 
+  getVideosMovies(filmeId){
+    return  this.http.get(this.url + `/movie/${filmeId}/videos?api_key=9c3d2c4419996bf281beb88bd141f2f3`);
+  } 
 }

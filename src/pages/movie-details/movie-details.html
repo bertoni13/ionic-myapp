@@ -92,9 +92,11 @@
     </ng-container>
   </ion-item>
   <hr/>
-  <ion-item>
+<!--   <ion-item>
     <h2 class="title">Trailer</h2>
-    <iframe width="100%" height="auto" src="https://www.youtube.com/embed/WTh5STZlQE4" frameborder="0" allowfullscreen></iframe>
-  </ion-item>  
+    <ion-card *ngFor="let g of video?.results">
+    <iframe width="100%" height="auto" [src]="youtube | youtube" frameborder="0"></iframe>
+    </ion-card>    
+  </ion-item>  --> 
 </ion-card>	
 </ion-content>

@@ -1,0 +1,33 @@
+<ion-menu [content]="content">
+	<ion-header>
+		<ion-toolbar>
+			<ion-title>Menu</ion-title>
+		</ion-toolbar>
+	</ion-header>
+	<ion-content class='menuPrinc'>
+		<ion-item-divider>
+			Filmes
+		</ion-item-divider>  
+		<ion-list>
+			<button ion-item (click)="openHome()" menuClose>
+				<ion-icon name="home"></ion-icon>
+				Home
+			</button>
+			<button ion-item (click)="openFeed()" menuClose>
+				<ion-icon name="md-flame"></ion-icon>
+				Filmes populares
+			</button>
+			<button ion-item (click)="openPage(eventsPage)">
+				<ion-icon name="star"></ion-icon>
+				Filmes mais classificados
+			</button>
+			<button ion-item (click)="closeMenu()">
+				<ion-icon name="ios-paper"></ion-icon>
+				Em cartaz
+			</button>
+		</ion-list>
+	</ion-content>
+
+</ion-menu>
+
+<ion-nav id="nav" #content [root]="rootPage"></ion-nav>

@@ -4,6 +4,7 @@ import { StatusBar } from '@ionic-native/status-bar';
 import { SplashScreen } from '@ionic-native/splash-screen';
 
 import { TabsPage } from '../pages/tabs/tabs';
+import { ConfiguracoesPage } from '../pages/configuracoes/configuracoes';
 import { IntroPage } from '../pages/intro/intro';
 
 import { ConfigProvider } from "../providers/config/config"
@@ -31,7 +32,7 @@ export class MyApp {
         this.rootPage = IntroPage;
         configProvider.setConfig(false);
       }else{
-        this.rootPage = TabsPage;
+        this.rootPage = ConfiguracoesPage;
       }
       console.info(config);
 
