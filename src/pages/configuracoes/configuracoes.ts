@@ -3,6 +3,7 @@ import { IonicPage, NavController, NavParams } from 'ionic-angular';
 import { HomePage } from '../home/home';
 import { FeedPage } from '../feed/feed';
 import { TopMoviePage } from '../top-movie/top-movie';
+import { NextMoviesPage } from '../next-movies/next-movies';
 
 @IonicPage()
 @Component({
@@ -27,5 +28,9 @@ export class ConfiguracoesPage {
   }  
   openTopMovie(){
     this.navCtrl.push(TopMoviePage);
-  }    
+  }
+  openNextMovie(){
+    this.navCtrl.push(NextMoviesPage);
+  } 
+
 }

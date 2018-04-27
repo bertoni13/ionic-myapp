@@ -16,8 +16,11 @@ export class MovieProvider {
     return this.http.get(this.url + `/movie/now_playing?api_key=9c3d2c4419996bf281beb88bd141f2f3` + this.translate);
   }  
   getTopMovies(page){
-    return this.http.get(this.url + `/movie/top_rated?api_key=9c3d2c4419996bf281beb88bd141f2f3` + this.translate);
-  }  
+    return this.http.get(this.url + `/movie/top_rated?page=${page}&api_key=9c3d2c4419996bf281beb88bd141f2f3` + this.translate);
+  } 
+  getUpcomingMovies(page){
+    return this.http.get(this.url + `/movie/upcoming?page=${page}&api_key=9c3d2c4419996bf281beb88bd141f2f3` + this.translate);
+  } 
   getMoviesDetails(filmeId){
     return this.http.get(this.url + `/movie/${filmeId}?api_key=9c3d2c4419996bf281beb88bd141f2f3` + this.translate);
   }

@@ -14,8 +14,10 @@ import { StatusBar } from '@ionic-native/status-bar';
 import { SplashScreen } from '@ionic-native/splash-screen';
 import { MovieProvider } from '../providers/movie/movie';
 import { MovieDetailsPageModule } from '../pages/movie-details/movie-details.module' 
-import { TopMoviePageModule } from '../pages/top-movie/top-movie.module' 
+import { TopMoviePageModule } from '../pages/top-movie/top-movie.module'
+import { NextMoviesPageModule } from '../pages/next-movies/next-movies.module' 
 import { ConfiguracoesPageModule } from '../pages/configuracoes/configuracoes.module'
+
 @NgModule({
   declarations: [
     MyApp,
@@ -31,6 +33,7 @@ import { ConfiguracoesPageModule } from '../pages/configuracoes/configuracoes.mo
     HttpModule,
     MovieDetailsPageModule,
     TopMoviePageModule,
+    NextMoviesPageModule,
     ConfiguracoesPageModule
   ],
   bootstrap: [IonicApp],
