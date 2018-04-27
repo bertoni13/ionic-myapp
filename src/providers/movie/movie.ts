@@ -6,6 +6,7 @@ export class MovieProvider {
 
 	private url = 'https://api.themoviedb.org/3';
   private translate = '&language=pt-BR';
+  private region = '&region=US'
   constructor(public http: Http) {
   }
 
