@@ -5,26 +5,32 @@
 		</ion-toolbar>
 	</ion-header>
 	<ion-content class='menuPrinc'>
-		<ion-item-divider>
-			Filmes
-		</ion-item-divider>  
 		<ion-list>
 			<button ion-item (click)="openHome()" menuClose>
 				<ion-icon name="home"></ion-icon>
 				Home
-			</button>
+			</button>			
+		</ion-list>
+		<ion-item-divider>
+			Filmes
+		</ion-item-divider>  
+		<ion-list>
 			<button ion-item (click)="openFeed()" menuClose>
 				<ion-icon name="md-flame"></ion-icon>
-				&nbsp;Filmes populares
+				&nbsp;Populares
 			</button>
 			<button ion-item (click)="openTopMovie()" menuClose>
 				<ion-icon name="star"></ion-icon>
-				Filmes mais classificados
+				 Mais classificados
 			</button>
 			<button ion-item (click)="openNextMovie()" menuClose>
 				<ion-icon name="ios-paper"></ion-icon>
 				&nbsp;Em cartaz
 			</button>
+			<button ion-item (click)="openNewMovie()" menuClose>
+				<ion-icon name="md-film"></ion-icon>
+				&nbsp;Próximos
+			</button>			
 		</ion-list>
 	</ion-content>
 

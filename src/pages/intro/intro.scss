@@ -1,7 +1,26 @@
 page-intro {
+	.slide-zoom{
+		color: #fff;
+	}
+	.ion-md-film:before, .ion-md-easel, .ion-md-play{
+	    font-size: 5.2em;
+	    color: #f8d448;		
+	}
+	.ion-md-play:hover{
+		color: #e8d448;
+	}
+	a{
+		color: #f8d448;
+	}
 	.slide_img{
 		img{
 			width: 240px;
 		}
+	}
+	.swiper-pagination-bullet{
+		background: #f1f1f1;
+	}
+	.swiper-pagination-bullet-active{
+		background: #f8d448;
 	}
 }

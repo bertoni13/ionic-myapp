@@ -4,6 +4,7 @@ import { HomePage } from '../home/home';
 import { FeedPage } from '../feed/feed';
 import { TopMoviePage } from '../top-movie/top-movie';
 import { NextMoviesPage } from '../next-movies/next-movies';
+import { NewMoviesPage } from '../new-movies/new-movies';
 
 @IonicPage()
 @Component({
@@ -31,6 +32,9 @@ export class ConfiguracoesPage {
   }
   openNextMovie(){
     this.navCtrl.push(NextMoviesPage);
-  } 
+  }
+  openNewMovie(){
+    this.navCtrl.push(NewMoviesPage);
+  }   
 
 }

@@ -14,6 +14,8 @@ export class MovieDetailsPage {
   public video;
   public youtube: string = 'https://www.youtube.com/embed/'
 	public filmeId;
+  public r;
+  public rede: Array<any> = [];
   constructor(
   	public navCtrl: NavController,
   	public navParams: NavParams,
@@ -26,11 +28,14 @@ export class MovieDetailsPage {
   	this.movieProvider.getMoviesDetails(this.filmeId).subscribe(data =>{
   		let retorno = (data as any)._body;
   		this.filme = JSON.parse(retorno);
-      console.info(this.filme);
   	},error =>{
   		console.info("error");
   	})
-
+    this.movieProvider.getNetwork(this.filmeId).subscribe(data =>{
+      let social = (data as any)._body;
+      this.r = JSON.parse(social);
+      this.rede = Array.of(this.r);     
+    })
     // this.movieProvider.getVideosMovies(this.filmeId).subscribe(data =>{
     //   let videos = (data as any)._body;
     //     this.video = JSON.parse(videos);

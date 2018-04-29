@@ -1,0 +1,45 @@
+<ion-header>
+
+  <ion-navbar>
+    <button ion-button icon-only menuToggle>
+      <ion-icon name="menu"></ion-icon>
+    </button>	  
+    <ion-title>Próximos</ion-title>
+  </ion-navbar>
+
+</ion-header>
+
+
+<ion-content padding>
+<ion-refresher (ionRefresh)="doRefresh($event)">
+		<ion-refresher-content></ion-refresher-content>
+	</ion-refresher>
+<ion-card *ngFor="let filme of lista_filmes">
+
+		<ion-item>
+			<h2 class="feed_title">{{ filme.title }}</h2>
+			<p class="feed_date">{{ filme.release_data }}</p>
+		</ion-item>
+
+		<img src="https://image.tmdb.org/t/p/w300/{{filme.backdrop_path}}">
+
+		<ion-card-content>
+			<p>{{ (filme.overview.length < 120) ? filme.overview : filme.overview.substring(0, 120)  + '...' }}</p>
+		</ion-card-content>
+
+		<ion-row>
+			<ion-card-content>
+				<p><ion-icon name="heart"></ion-icon> Nota média: {{filme.vote_average}}</p>
+			</ion-card-content>	  
+			<ion-col center text-center>
+				<ion-note>
+					<button ion-button (click)="openDetails(filme)">Ver mais</button>
+				</ion-note>
+			</ion-col>
+		</ion-row>
+
+	</ion-card>
+	<ion-infinite-scroll (ionInfinite)="doInfinite($event)">
+		<ion-infinite-scroll-content></ion-infinite-scroll-content>
+	</ion-infinite-scroll>	
+</ion-content>

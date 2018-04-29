@@ -37,11 +37,10 @@ export class HomePage {
  		) 	
  	};	
  	carregaFilmesNow(){
- 		this.movieProvider.getNowMovies().subscribe(data =>{
+ 		this.movieProvider.getNowMovies(this.page).subscribe(data =>{
  			const response = (data as any);
  			const last = JSON.parse(response._body);
  			this.lista_filmes_now = last.results;
- 			console.info(this.lista_filmes_now);
  		})	 		
  	}
 }

@@ -1,13 +1,7 @@
-<!--
-  Generated template for the IntroPage page.
-
-  See http://ionicframework.com/docs/components/#navigation for more info on
-  Ionic pages and navigation.
--->
 <ion-header>
 
   <ion-navbar>
-    <ion-title>intro</ion-title>
+    <ion-title>CineLove</ion-title>
   </ion-navbar>
 
 </ion-header>
@@ -17,32 +11,32 @@
 	<ion-slides pager>
 
 	<ion-slide class="slide_img">
-		<img src="assets/imgs/ica-slidebox-img-1.png">
-		<h2>Meu primeiro App</h2>
+		<ion-icon name="film"></ion-icon>
+		<h2>Seja muito bem-vindo!</h2>
 		<div>
 			<p>
-				Este meu app sera bem legal, você vai ficar impressionado
+				O cinema não tem fronteiras nem limites. É um fluxo contante de sonho.
 			</p>
 		</div>
 	</ion-slide>
 
 	<ion-slide class="slide_img">
-		<img src="assets/imgs/ica-slidebox-img-2.png">
-		<h2>Aqui você vai ver muitas coisas legais</h2>
+		<ion-icon name="md-easel"></ion-icon>
+		<h2>Aqui você vai ter informações completas</h2>
 		<div>
 			<p>
-				Não perca essa oportunidade e navegue
+				Saiba de todos os filmes que fizeram sucesso, estão em cartaz e os próximos lançamentos.
 			</p>
 		</div>		
 	</ion-slide>
 
 	<ion-slide class="slide_img">
-		<img src="assets/imgs/ica-slidebox-img-3.png">
-		<h2>Você terá uma boa diversão</h2>
+		<ion-icon name="md-play" (click)="goToTabPage()"></ion-icon>
+		<h2>Está esperando o que?</h2>
 		<div>
 			<p>
-				Aqui você vai estar por dentro de todas as novidades.
-				<a (click)="goToTabPage()">Continuar</a>
+				Aperte o play e comece a desfrutar o mundo dos filmes.
+				<!-- <a (click)="goToTabPage()">Continuar</a> -->
 			</p>
 		</div>		
 	</ion-slide>

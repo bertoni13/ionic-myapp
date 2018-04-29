@@ -13,8 +13,8 @@ export class MovieProvider {
   getPopularMovies(page){
   	return this.http.get(this.url + `/movie/popular?page=${page}&api_key=9c3d2c4419996bf281beb88bd141f2f3` + this.translate);
   }
-  getNowMovies(){
-    return this.http.get(this.url + `/movie/now_playing?api_key=9c3d2c4419996bf281beb88bd141f2f3` + this.translate);
+  getNowMovies(page){
+    return this.http.get(this.url + `/movie/now_playing?page=${page}&api_key=9c3d2c4419996bf281beb88bd141f2f3` + this.translate);
   }  
   getTopMovies(page){
     return this.http.get(this.url + `/movie/top_rated?page=${page}&api_key=9c3d2c4419996bf281beb88bd141f2f3` + this.translate);
@@ -26,7 +26,7 @@ export class MovieProvider {
     return this.http.get(this.url + `/movie/${filmeId}?api_key=9c3d2c4419996bf281beb88bd141f2f3` + this.translate);
   }
   getNetwork(filmeId){
-    return this.http.get(this.url + `/movie/${filmeId}external_ids?api_key=9c3d2c4419996bf281beb88bd141f2f3`);
+    return this.http.get(this.url + `/movie/${filmeId}/external_ids?api_key=9c3d2c4419996bf281beb88bd141f2f3`);
   } 
   getVideosMovies(filmeId){
     return  this.http.get(this.url + `/movie/${filmeId}/videos?api_key=9c3d2c4419996bf281beb88bd141f2f3`);
