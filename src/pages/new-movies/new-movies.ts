@@ -3,6 +3,7 @@ import { IonicPage, NavController, NavParams } from 'ionic-angular';
 import { MovieProvider } from '../../providers/movie/movie';
 import { LoadingController } from 'ionic-angular';
 import { MovieDetailsPage } from '../movie-details/movie-details';
+import { JsonpModule, Jsonp } from '@angular/http';
 
 @IonicPage()
 @Component({
@@ -15,12 +16,14 @@ export class NewMoviesPage {
 	public page = 1;
 	public infinitScroll;
 	public loader;
+	public query: string;
 	public refresher;
 	public isrefresher: boolean = false;	
 	constructor(public navCtrl: NavController,
 		public navParams: NavParams, 
 		private movieProvider: MovieProvider,
-		public loadingCtrl: LoadingController) {
+		public loadingCtrl: LoadingController,
+		private jsonp: Jsonp) {
 	}
 	public loadingMovies(){
 		this.loader = this.loadingCtrl.create({
@@ -50,6 +53,12 @@ export class NewMoviesPage {
 	openDetails(filme){
 		this.navCtrl.push(MovieDetailsPage, { id: filme.id })
 	}
+	search(){
+    if(this.query) {
+      let url = `https://api.themoviedb.org/3/search/movie?api_key=9c3d2c4419996bf281beb88bd141f2f3&language=pt-BR&page=1&include_adult=false&query=${encodeURIComponent(this.query)}&callback=JSONP_CALLBACK`;
+      return this.jsonp.get(url).subscribe(data => {this.lista_filmes = data.json().results;});
+    }
+	}	
 	carregarFilmes(newpage: boolean = false){
 		this.loadingMovies();
 		this.movieProvider.getNowMovies(this.page).subscribe(

@@ -13,4 +13,18 @@ page-feed {
 		float: right;
 		right: 5%;
 	}	
+	.notfound{
+		 text-align: center;
+		 position: relative;
+		 top: 5%;
+		.ion-md-sad:before{
+			font-size: 7.2em;
+			color: #f8d448
+		}
+		span{
+			display: block;
+			font-size: 2.2em;
+			color: #f8d448;
+		}	
+	}
 }

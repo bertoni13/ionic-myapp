@@ -2,9 +2,8 @@ import { NgModule, ErrorHandler } from '@angular/core';
 import { BrowserModule } from '@angular/platform-browser';
 import { IonicApp, IonicModule, IonicErrorHandler } from 'ionic-angular';
 import { MyApp } from './app.component';
-
-import { AboutPage } from '../pages/about/about';
-import { ContactPage } from '../pages/contact/contact';
+import {JsonpModule, Jsonp} from '@angular/http';
+import {FormsModule}   from '@angular/forms';
 import { HomePage } from '../pages/home/home';
 import { FeedPageModule } from '../pages/feed/feed.module';
 import { IntroPageModule } from '../pages/intro/intro.module';
@@ -22,8 +21,6 @@ import { ConfiguracoesPageModule } from '../pages/configuracoes/configuracoes.mo
 @NgModule({
   declarations: [
     MyApp,
-    AboutPage,
-    ContactPage,
     HomePage,
   ],
   imports: [
@@ -36,18 +33,18 @@ import { ConfiguracoesPageModule } from '../pages/configuracoes/configuracoes.mo
     TopMoviePageModule,
     NextMoviesPageModule,
     NewMoviesPageModule,
-    ConfiguracoesPageModule
+    ConfiguracoesPageModule,
+    JsonpModule, FormsModule
   ],
   bootstrap: [IonicApp],
   entryComponents: [
     MyApp,
-    AboutPage,
-    ContactPage,
     HomePage,
   ],
   providers: [
     StatusBar,
     SplashScreen,
+    JsonpModule, FormsModule,,
     {provide: ErrorHandler, useClass: IonicErrorHandler},
     MovieProvider
   ]

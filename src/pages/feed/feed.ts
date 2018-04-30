@@ -3,6 +3,7 @@ import { IonicPage, NavController, NavParams } from 'ionic-angular';
 import { MovieProvider } from '../../providers/movie/movie';
 import { LoadingController } from 'ionic-angular';
 import { MovieDetailsPage } from '../movie-details/movie-details';
+import { JsonpModule, Jsonp } from '@angular/http';
 
  @IonicPage()
  @Component({
@@ -19,11 +20,13 @@ import { MovieDetailsPage } from '../movie-details/movie-details';
  	public infinitScroll;
  	public loader;
  	public refresher;
+ 	public query: string;
  	public isrefresher: boolean = false;
  	constructor(public navCtrl: NavController,
  		public navParams: NavParams, 
  		private movieProvider: MovieProvider,
- 		public loadingCtrl: LoadingController) {
+ 		public loadingCtrl: LoadingController,
+ 		private jsonp: Jsonp) {
  	}
 
  	public loadingMovies(){
@@ -54,6 +57,12 @@ import { MovieDetailsPage } from '../movie-details/movie-details';
  	openDetails(filme){
  		this.navCtrl.push(MovieDetailsPage, { id: filme.id });
  	}
+	search(){
+    if(this.query) {
+      let url = `https://api.themoviedb.org/3/search/movie?api_key=9c3d2c4419996bf281beb88bd141f2f3&language=pt-BR&page=1&include_adult=false&query=${encodeURIComponent(this.query)}&callback=JSONP_CALLBACK`;
+      return this.jsonp.get(url).subscribe(data => {this.lista_filmes = data.json().results;});
+    }
+	} 	
  	carregarFilmes(newpage: boolean = false){
  		this.loadingMovies();
  		this.movieProvider.getPopularMovies(this.page).subscribe(

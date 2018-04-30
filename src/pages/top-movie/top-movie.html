@@ -14,6 +14,17 @@
 	<ion-refresher (ionRefresh)="doRefresh($event)">
 		<ion-refresher-content></ion-refresher-content>
 	</ion-refresher>
+	<ion-searchbar
+	  [(ngModel)]="query"
+	  [showCancelButton]="shouldShowCancel"
+	  (ionCancel)="onCancel($event)"
+	  (ionInput)="search($event)"
+	  placeholder="Buscar...">
+	</ion-searchbar>	
+	<div class="notfound" *ngIf='lista_filmes?.length === 0'> 
+		<ion-icon name="md-sad"></ion-icon>
+		<span>Filme não encontrado!</span>
+	</div>	
 	<ion-card *ngFor="let filme of lista_filmes">
 
 		<ion-item>
