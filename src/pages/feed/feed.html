@@ -3,7 +3,7 @@
 	<ion-navbar>
     <button ion-button icon-only menuToggle>
       <ion-icon name="menu"></ion-icon>
-    </button>	
+    </button>
 		<ion-title>Filmes Populares</ion-title>
 	</ion-navbar>
 
@@ -19,8 +19,8 @@
 	  (ionCancel)="onCancel($event)"
 	  (ionInput)="search($event)"
 	  placeholder="Buscar...">
-	</ion-searchbar>	
-	<div class="notfound" *ngIf='lista_filmes?.length === 0'> 
+	</ion-searchbar>
+	<div class="notfound" *ngIf='lista_filmes?.length === 0'>
 		<ion-icon name="md-sad"></ion-icon>
 		<span>Filme não encontrado!</span>
 	</div>
@@ -43,7 +43,7 @@
 		<ion-row>
 			<ion-card-content>
 				<p><ion-icon name="heart"></ion-icon> Nota média: {{filme.vote_average}}</p>
-			</ion-card-content>	  
+			</ion-card-content>
 			<ion-col center text-center>
 				<ion-note>
 					<button ion-button (click)="openDetails(filme)">Ver mais</button>
@@ -54,5 +54,5 @@
 	</ion-card>
 	<ion-infinite-scroll (ionInfinite)="doInfinite($event)">
 		<ion-infinite-scroll-content></ion-infinite-scroll-content>
-	</ion-infinite-scroll>	
+	</ion-infinite-scroll>
 </ion-content>

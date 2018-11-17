@@ -4,7 +4,7 @@
     <button ion-button icon-only menuToggle>
       <ion-icon name="menu"></ion-icon>
     </button>
-    <ion-title>Próximos</ion-title>
+    <ion-title>Atores</ion-title>
   </ion-navbar>
 
 </ion-header>
@@ -23,28 +23,24 @@
 	</ion-searchbar>
 	<div class="notfound" *ngIf='lista_filmes?.length === 0'>
 		<ion-icon name="md-sad"></ion-icon>
-		<span>Filme não encontrado!</span>
+		<span>Ator não encontrado!</span>
 	</div>
-<ion-card *ngFor="let filme of lista_filmes">
+<ion-card *ngFor="let person of lista_filmes">
 
 		<ion-item>
-			<h2 class="feed_title">{{ filme.title }}</h2>
-			<p class="feed_date">{{ filme.release_data }}</p>
+			<h2 class="feed_title">{{ person.name }}</h2>
+			<p class="feed_date">{{ person.id }}</p>
 		</ion-item>
 
-		<img src="https://image.tmdb.org/t/p/w300/{{filme.backdrop_path}}">
-
-		<ion-card-content>
-			<p>{{ (filme.overview.length < 120) ? filme.overview : filme.overview.substring(0, 120)  + '...' }}</p>
-		</ion-card-content>
+		<img src="https://image.tmdb.org/t/p/w300/{{person.profile_path}}">
 
 		<ion-row>
 			<ion-card-content>
-				<p><ion-icon name="heart"></ion-icon> Nota média: {{filme.vote_average}}</p>
+				<p><ion-icon name="heart"></ion-icon> Popularidade: {{person.popularity}}</p>
 			</ion-card-content>
 			<ion-col center text-center>
 				<ion-note>
-					<button ion-button (click)="openDetails(filme)">Ver mais</button>
+					<button ion-button (click)="openDetails(person)">Ver mais</button>
 				</ion-note>
 			</ion-col>
 		</ion-row>

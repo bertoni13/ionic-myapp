@@ -5,6 +5,7 @@ import { FeedPage } from '../feed/feed';
 import { TopMoviePage } from '../top-movie/top-movie';
 import { NextMoviesPage } from '../next-movies/next-movies';
 import { NewMoviesPage } from '../new-movies/new-movies';
+import { PeoplesPage } from '../peoples/peoples';
 
 @IonicPage()
 @Component({
@@ -26,7 +27,7 @@ export class ConfiguracoesPage {
   }
   openFeed(){
   	this.navCtrl.push(FeedPage);
-  }  
+  }
   openTopMovie(){
     this.navCtrl.push(TopMoviePage);
   }
@@ -35,6 +36,9 @@ export class ConfiguracoesPage {
   }
   openNewMovie(){
     this.navCtrl.push(NewMoviesPage);
-  }   
+  }
+  openPeoples(){
+    this.navCtrl.push(PeoplesPage);
+  }
 
 }

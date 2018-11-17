@@ -12,10 +12,11 @@ import { HttpModule } from  '@angular/http';
 import { StatusBar } from '@ionic-native/status-bar';
 import { SplashScreen } from '@ionic-native/splash-screen';
 import { MovieProvider } from '../providers/movie/movie';
-import { MovieDetailsPageModule } from '../pages/movie-details/movie-details.module' 
+import { MovieDetailsPageModule } from '../pages/movie-details/movie-details.module'
 import { TopMoviePageModule } from '../pages/top-movie/top-movie.module'
-import { NextMoviesPageModule } from '../pages/next-movies/next-movies.module' 
-import { NewMoviesPageModule } from '../pages/new-movies/new-movies.module' 
+import { NextMoviesPageModule } from '../pages/next-movies/next-movies.module'
+import { PeoplesPageModule } from '../pages/peoples/peoples.module'
+import { NewMoviesPageModule } from '../pages/new-movies/new-movies.module'
 import { ConfiguracoesPageModule } from '../pages/configuracoes/configuracoes.module'
 
 @NgModule({
@@ -32,6 +33,7 @@ import { ConfiguracoesPageModule } from '../pages/configuracoes/configuracoes.mo
     MovieDetailsPageModule,
     TopMoviePageModule,
     NextMoviesPageModule,
+    PeoplesPageModule,
     NewMoviesPageModule,
     ConfiguracoesPageModule,
     JsonpModule, FormsModule
