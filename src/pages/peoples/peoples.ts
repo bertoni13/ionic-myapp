@@ -2,7 +2,7 @@ import { Component } from '@angular/core';
 import { IonicPage, NavController, NavParams } from 'ionic-angular';
 import { MovieProvider } from '../../providers/movie/movie';
 import { LoadingController } from 'ionic-angular';
-import { MovieDetailsPage } from '../movie-details/movie-details';
+import { PeoplesDetailsPage } from '../peoples-details/peoples-details';
 import { JsonpModule, Jsonp } from '@angular/http';
 
 @IonicPage()
@@ -31,10 +31,6 @@ export class PeoplesPage {
 		});
 		this.loader.present();
 	}
-
-	public closeMovie(){
-		this.loader.dismiss();
-	}
 	public doRefresh(refresher) {
 		this.refresher = refresher;
 		this.isrefresher = true;
@@ -50,8 +46,8 @@ export class PeoplesPage {
 		this.carregarFilmes(true);
 
 	}
-	openDetails(filme){
-		this.navCtrl.push(MovieDetailsPage, { id: filme.id })
+	openDetails(person){
+		this.navCtrl.push(PeoplesDetailsPage, { id: person.id })
 	}
 	search(){
     if(this.query) {

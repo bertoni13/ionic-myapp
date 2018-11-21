@@ -8,6 +8,11 @@ page-peoples {
 	}
 	.scroll-content{
 		padding: 5px !important;
+		.card-md {
+			float: left;
+			width: calc(50% - 20px);
+			margin-top: 0;
+		}
 	}
 	.button-md {
 		float: right;

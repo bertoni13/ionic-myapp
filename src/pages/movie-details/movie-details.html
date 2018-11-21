@@ -22,7 +22,7 @@
     <ion-row>
       <ion-card-content>
         <p><ion-icon name="heart"></ion-icon> Nota média: <strong>{{filme.vote_average}}/10</strong> - Total de votos: <strong>{{filme.vote_count}}</strong></p>
-      </ion-card-content>   
+      </ion-card-content>
     </ion-row>
   </ion-card>
   <ion-card>
@@ -36,7 +36,7 @@
     <ion-icon name="pricetags" item-start large></ion-icon>
     <h2 class="title">Género</h2>
     <div class="genres" *ngFor="let g of filme?.genres">
-    	{{ g.name }} 
+    	{{ g.name }}
     </div>
   </ion-item>
   <hr/>
@@ -50,17 +50,17 @@
     <ion-icon name="videocam" item-left large ></ion-icon>
     <h2 class="title">Produtora</h2>
     <div class="genres" *ngFor="let g of filme?.production_companies">
-      {{ g.name }} 
+      {{ g.name }}
     </div>
   </ion-item>
-  <hr/> 
+  <hr/>
   <ion-item>
     <ion-icon name="globe" item-left large ></ion-icon>
     <h2 class="title">País da Produção</h2>
     <div class="genres" *ngFor="let g of filme?.production_countries">
-      {{ g.name }} 
+      {{ g.name }}
     </div>
-  </ion-item>  
+  </ion-item>
   <hr/>
   <ion-item>
     <ion-icon name="logo-usd" item-left large ></ion-icon>
@@ -80,7 +80,7 @@
     <span item-start *ngIf="r.facebook_id">
       <a href="https://www.facebook.com/{{r.facebook_id}}" target="blank">
         <ion-icon name="logo-facebook"></ion-icon>
-      </a> 
+      </a>
     </span>
     <span item-start *ngIf="r.instagram_id">
       <a href="https://www.instagram.com/{{r.instagram_id}}" target="blank">
@@ -100,7 +100,7 @@
     <h2 class="title">Trailer</h2>
     <ion-card *ngFor="let g of video?.results">
     <iframe width="100%" height="auto" [src]="youtube | youtube" frameborder="0"></iframe>
-    </ion-card>    
-  </ion-item>  --> 
-</ion-card>	
+    </ion-card>
+  </ion-item>  -->
+</ion-card>
 </ion-content>

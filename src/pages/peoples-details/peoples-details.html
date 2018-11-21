@@ -1,0 +1,87 @@
+<ion-header>
+
+  <ion-navbar>
+    <ion-title>Detalhes do Ator</ion-title>
+  </ion-navbar>
+
+</ion-header>
+
+<ion-content padding>
+	<ion-card *ngIf="person">
+
+		<ion-item>
+			<h2 class="feed_title">{{ person.name }}</h2>
+			<p class="feed_date">{{ person.known_for_department }}</p>
+		</ion-item>
+
+		<img src="https://image.tmdb.org/t/p/w300/{{person.profile_path}}">
+    <ion-row>
+      <ion-card-content>
+        <p><ion-icon name="heart"></ion-icon> Popularidade: <strong>{{person.popularity}}</strong></p>
+      </ion-card-content>
+    </ion-row>
+  </ion-card>
+  <ion-card *ngIf="person">
+
+   <ion-item *ngIf="person?.biography !=''">
+    <ion-icon name="pricetags" item-start large></ion-icon>
+    <h2 class="title">Biografia</h2>
+    <div class="genres">
+    	<p>{{ person?.biography }}</p>
+    </div>
+  </ion-item>
+  <hr *ngIf="person?.biography !=''" />
+  <ion-item>
+    <ion-icon name="md-calendar" item-left large ></ion-icon>
+    <h2 class="title">Data de Nascimento</h2>
+    <p>{{ person?.birthday | date:'d/MM/yyyy'}}</p>
+  </ion-item>
+  <hr/>
+  <ion-item  *ngIf="person?.deathday != null">
+    <ion-icon name="md-calendar" item-left large ></ion-icon>
+    <h2 class="title">Data de Falecimento</h2>
+    <p>{{ person?.deathday | date:'d/MM/yyyy'}}</p>
+  </ion-item>
+  <hr  *ngIf="person?.deathday != null" />
+  <ion-item>
+    <ion-icon name="md-map" item-left large ></ion-icon>
+    <h2 class="title">Local Nascimento</h2>
+    <p>{{ person?.place_of_birth }}</p>
+  </ion-item>
+  <hr/>
+  <ion-item>
+    <ion-icon name="logo-rss" item-left large ></ion-icon>
+    <h2 class="title">Redes sociais</h2>
+    <div *ngFor="let r of rede">
+    <span item-start *ngIf="r.twitter_id">
+      <a href="https://twitter.com/{{r.twitter_id}}" target="blank">
+        <ion-icon name="logo-twitter"></ion-icon>
+      </a>
+    </span>
+    <span item-start *ngIf="r.facebook_id">
+      <a href="https://www.facebook.com/{{r.facebook_id}}" target="blank">
+        <ion-icon name="logo-facebook"></ion-icon>
+      </a>
+    </span>
+    <span item-start *ngIf="r.instagram_id">
+      <a href="https://www.instagram.com/{{r.instagram_id}}" target="blank">
+        <ion-icon name="logo-instagram"></ion-icon>
+      </a>
+    </span>
+    </div>
+    <ng-container *ngIf="person?.homepage">
+      <button ion-button icon-left clear item-end>
+        <ion-icon name="home"></ion-icon>
+        <a href="{{person?.homepage}}" target="blank">Site</a>
+      </button>
+    </ng-container>
+  </ion-item>
+  <hr/>
+<!--   <ion-item>
+    <h2 class="title">Trailer</h2>
+    <ion-card *ngFor="let g of video?.results">
+    <iframe width="100%" height="auto" [src]="youtube | youtube" frameborder="0"></iframe>
+    </ion-card>
+  </ion-item>  -->
+</ion-card>
+</ion-content>

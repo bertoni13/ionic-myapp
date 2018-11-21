@@ -28,6 +28,12 @@ export class MovieProvider {
   getMoviesDetails(filmeId){
     return this.http.get(this.url + `/movie/${filmeId}?api_key=9c3d2c4419996bf281beb88bd141f2f3` + this.translate);
   }
+	getPeoplesDetails(person_id){
+		return this.http.get(this.url + `/person/${person_id}?api_key=9c3d2c4419996bf281beb88bd141f2f3` + this.translate);
+	}
+	getNetworkPeoples(person_id){
+    return this.http.get(this.url + `/person/${person_id}/external_ids?api_key=9c3d2c4419996bf281beb88bd141f2f3`);
+  }
   getNetwork(filmeId){
     return this.http.get(this.url + `/movie/${filmeId}/external_ids?api_key=9c3d2c4419996bf281beb88bd141f2f3`);
   }
